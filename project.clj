@@ -12,6 +12,7 @@
     [com.cognitect/transit-cljs "0.8.256"]
     [clj-http                   "3.8.0"]
     [cheshire                   "5.8.0"]
+    [datascript                 "0.16.5"]
   ]
 
   :main grumpy.server

@@ -62,6 +62,18 @@
   (- (.getTime (now)) (.getTime inst)))
 
 
+(defn some-map [& kvs]
+  (->> kvs (partition 2) (filter #(some? (second %))) (map vec) (into {})))
+
+
+(defn array [type xs]
+  (let [len (count xs)
+        arr (make-array type len)]
+    (doseq [[x i] (zip xs (range))]
+      (aset arr i x))
+    arr))
+
+
 (def ^:private date-formatter (DateTimeFormat/forPattern "MMMMM d, YYYY"))
 (def ^:private iso-formatter (DateTimeFormat/forPattern "yyyy-MM-dd'T'HH:mm:ss'Z'"))
 
